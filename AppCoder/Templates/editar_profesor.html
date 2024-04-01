@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Profesor</title>
+</head>
+<body>
+    {% extends "padre.html"  %}
+
+    {% load static %}
+    
+    
+    {% block contenido %}
+        <form action="{% url 'editar_profe' profesor.id %}" method="POST">
+            {% csrf_token %}
+            <p>Nombre</p>
+            {{form.nombre}}
+            <p>Comision</p>
+            {{form.comision}}
+            
+            <button class="btn btn-primary btn-sm">Enviar</button>
+        </form>
+    
+    {% endblock %}
+    
+</body>
+</html>
